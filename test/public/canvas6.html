@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>手机播放测试</title>
+    <script src="javascripts/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="items" style="width: 100%;text-align: center">
+
+
+    </div>
+<script type="text/javascript">
+    var video = document.getElementById("video");
+    var myAudio = document.getElementById("myAudio");
+    var myAudio2 = document.getElementById("myAudio2");
+    var items = document.getElementById("items");
+
+    var lists = ['http://link.hhtjim.com/baidu/533571441.mp3','http://link.hhtjim.com/baidu/1102942.mp3',"http://link.hhtjim.com/baidu/541786611.mp3"]
+
+    var t = true;
+    function playOrPause() {
+        if (t){
+            video.play();
+            t = !t;
+        }else{
+            video.pause();
+            t = !t;
+        }
+    }
+
+    function audio(v) {
+        console.log(v)
+        for (var li = 0; li < i.length ;li++){
+            i[li].pause();
+        }
+//        $("#myAudio"+v).play();
+        i[v-1].play()
+
+    }
+
+    var i = [];
+    function forList(lists) {
+        for (var li = 0; li<lists.length ;li++){
+            var obj = "<div style='margin-bottom: 10%'><botton onClick='audio("+ parseInt(li + 1) +")'>播放：<span>"+ parseInt(li + 1) +"</span></botton><audio id='myAudio"+ parseInt(li + 1) +"'  onClick='audio(myAudio"+ parseInt(li + 1) +")' style='width: 100%;' controls='controls'><source   src='"+ lists[li] +"' type='audio/mpeg'></audio></div>";
+            $("#items").append(obj)
+
+            i.push(document.getElementById("myAudio"+ parseInt(li + 1)));
+        }
+
+    }
+
+    forList(lists)
+
+
+</script>
+</body>
+</html>

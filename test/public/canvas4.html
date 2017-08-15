@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="javascripts/Easel.js"></script>
+<body>
+
+<canvas id="demoCanvas" width="500px" height="500px"></canvas>
+
+</body>
+
+<script>
+
+    var demoCanvas = document.getElementById("demoCanvas");
+
+    //创建，得到参考的画布
+    var stage = new createjs.Stage(demoCanvas);
+
+    //形状
+    var circle = new createjs.Shape();
+    circle.graphics.beginFill("red").drawCircle(0,0,40);
+
+    circle.x = circle.y = 50;
+    stage.addChild(circle);
+
+    stage.update();
+
+    demoCanvas.addEventListener("click", handleClick);
+    function handleClick(event){
+        // 鼠标点击事件
+//        console.log(event)
+
+    }
+
+    demoCanvas.addEventListener("mousedown", handlePress);
+    function handlePress(event) {
+        console.log(2)
+        // 鼠标移动事件
+        // 当鼠标移动时，监听鼠标移动：
+    }
+
+    demoCanvas.addEventListener("mousemove", handleMove);
+    function handleMove(event) {
+//        console.log(3)
+        // 想要检查出更多的事件例子，请前往在GitHub
+    }
+
+    createjs.Ticker.addEventListener("tick", handleTick);
+
+    function handleTick() {
+        //圆圈将移动10个单位的权利。
+        circle.x += 10;
+        //会导致圆来包回
+        if (circle.x > stage.canvas.width) { circle.x = 0; }
+        stage.update();
+    }
+
+</script>
+</html>

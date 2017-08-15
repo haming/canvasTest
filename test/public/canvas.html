@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <canvas id="myCanvas" width="500" height="500" style="border: 1px solid black">
+
+ </canvas>
+ <canvas id="myCanvas" width="500" height="500" style="border: 1px solid black">
+
+ </canvas>
+</body>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var ctx2 = canvas.getContext('2d');
+//    ctx.fillStyle = 'blue';
+//    ctx.fillRect(0,0,100,100);
+    ctx.moveTo(0,0); //起点，（x,y）
+    ctx.lineTo(500,100); //终点（x，y）
+    ctx2.moveTo(200,200); //起点，（x,y）
+    ctx2.lineTo(600,200); //终点（x，y）
+    ctx.arc(20,60,20,0,2*Math.PI); //圆形 （坐标x ，坐标y，圆形直径，）
+    ctx.stroke(); //线条
+
+</script>
+</html>

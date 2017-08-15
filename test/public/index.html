@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=7555ff42e3ca38779585131c5c9c6bee"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<style>
+    input[type="text"] {
+        height: 25px;
+        outline: none;
+        border: 0;
+        border: 1px solid #CCCCCC;
+        padding: 0 4px;
+    }
+</style>
+
+<body>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBzE9xAESye6Kde-3hT-6B90nfwUkcS8Yw&sensor=false"></script>
+
+<div id="container" style="width: 100%;height: 100%"></div>
+
+<div class="button-group">
+    <input id="cityName" class="inputtext" placeholder="请输入城市的名称" type="text"/>
+    <input id="query" class="button" value="到指定的城市" type="button"/>
+</div>
+
+</body>
+
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+
+    });
+
+    AMap.event.addDomListener(document.getElementById('query'), 'click', function() {
+        var cityName = document.getElementById('cityName').value;
+        if (!cityName) {
+            cityName = '北京市';
+        }
+        map.setCity(cityName);
+    });
+</script>
+
+</html>
